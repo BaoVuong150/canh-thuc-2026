@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kịch Bản Canh Thức Giáng Sinh 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="dark">
+  <div class="stars"></div>
+
+  <!-- Top Sticky Navigation & Toolbar -->
+  <header class="top-toolbar">
+    <a href="#" class="brand-title">
+      <span class="star-icon">⭐</span>
+      <div class="brand-text">
+        <span class="brand-main">CANH THỨC GIÁNG SINH 2026</span>
+        <small class="brand-sub">GIÁO XỨ TÂN HƯNG &bull; HẠT XÓM MỚI</small>
+      </div>
+    </a>
+
+    <div class="toolbar-tools">
+      <!-- Search Input -->
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Tìm lời thoại, nhân vật..." oninput="handleSearch(this.value)">
+      </div>
+
+      <div class="toolbar-btn-group">
+        <!-- Mobile Quick Nav Toggle -->
+        <button class="tool-btn mobile-nav-toggle" id="mobileNavBtn" onclick="toggleMobileSidebar()"
+          title="Mở/Đóng Mục lục &amp; Lọc vai">
+          <span>☰</span> <span class="btn-label">Mục lục</span>
+        </button>
+
+        <!-- Font Size Adjusters -->
+        <button class="tool-btn" onclick="changeFontSize(-1)" title="Giảm cỡ chữ">A-</button>
+        <button class="tool-btn" onclick="changeFontSize(1)" title="Tăng cỡ chữ">A+</button>
+
+        <!-- Auto Scroll Toggle -->
+        <button class="tool-btn" id="autoScrollBtn" onclick="toggleAutoScroll()"
+          title="Cuộn trang tự động khi tập kịch">
+          <span>▶</span> <span class="btn-label">Cuộn tự động</span>
+        </button>
+
+        <!-- Light / Dark Mode Toggle -->
+        <button class="tool-btn" id="themeBtn" onclick="toggleTheme()" title="Đổi giao diện Sáng / Tối">
+          <span id="themeIcon">☀️</span> <span class="btn-label">Chế độ Sáng</span>
+        </button>
+
+        <!-- Print Button -->
+        <button class="tool-btn btn-print" onclick="window.print()" title="In kịch bản">
+          <span>🖨️</span> <span class="btn-label">In</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileSidebar()"></div>
+
+  <!-- Teleprompter floating control bar (visible when auto-scroll is on) -->
+  <div class="teleprompter-bar" id="teleprompterBar">
+    <span style="color: var(--gold-primary); font-weight: bold; font-size: 0.85rem;">⚡ TỰ ĐỘNG CUỘN:</span>
+    <button class="tool-btn" onclick="changeScrollSpeed(-0.5)" style="padding: 4px 8px;">Chậm</button>
+    <span id="speedDisplay" style="font-size: 0.85rem; font-weight: bold;">1.0x</span>
+    <button class="tool-btn" onclick="changeScrollSpeed(0.5)" style="padding: 4px 8px;">Nhanh</button>
+    <button class="tool-btn active" onclick="toggleAutoScroll()" style="padding: 4px 10px;">Dừng</button>
+  </div>
+
+  <div class="app-layout">
+    <!-- Left Navigation & Filters -->
+    <aside class="sidebar" id="appSidebar">
+      <div class="sidebar-mobile-header">
+        <span>📋 Mục Lục &amp; Bộ Lọc Vai Diễn</span>
+        <button class="sidebar-close-btn" onclick="closeMobileSidebar()" aria-label="Đóng">✕</button>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="side-card">
+        <div class="side-card-title">
+          <span>📜</span> Danh Sách Cảnh
+        </div>
+        <ul class="scene-nav-list">
+          <li>
+            <a href="#canh-1" class="scene-nav-link active" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">1</span>
+              <span class="scene-nav-text">Ađam - Evà</span>
+              <span class="scene-music-badge">🎵 Địa Cầu Hoan Ca</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-2" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">2</span>
+              <span class="scene-nav-text">Truyền Tin</span>
+              <span class="scene-music-badge">🎵 Truyền Tin</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-3" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">3</span>
+              <span class="scene-nav-text">Gioan Tẩy Giả</span>
+              <span class="scene-music-badge">🎵 Magnificat</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-4" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">4</span>
+              <span class="scene-nav-text">Kiểm Tra Dân Số</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-5" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">5</span>
+              <span class="scene-nav-text">Đường Tới Bêlem</span>
+              <span class="scene-music-badge">🎵 Emmanuel</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-6" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">6</span>
+              <span class="scene-nav-text">Quán Trọ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-7" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">7</span>
+              <span class="scene-nav-text">Mục Đồng</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-8" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">8</span>
+              <span class="scene-nav-text">3 Vua</span>
+            </a>
+          </li>
+          <li>
+            <a href="#canh-9" class="scene-nav-link" onclick="closeMobileSidebar()">
+              <span class="scene-badge-num">9</span>
+              <span class="scene-nav-text">Đón Chúa Hài Đồng</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Character Filter -->
+      <div class="side-card">
+        <div class="side-card-title">
+          <span>🎭</span> Lọc Theo Vai Diễn
+        </div>
+        <div class="filter-pills">
+          <div class="char-pill active" onclick="filterCharacter('all', this)">Tất cả</div>
+          <div class="char-pill" onclick="filterCharacter('dan', this)">Dẫn chuyện</div>
+          <div class="char-pill" onclick="filterCharacter('thien-chua', this)">Thiên Chúa</div>
+          <div class="char-pill" onclick="filterCharacter('adam', this)">Ađam</div>
+          <div class="char-pill" onclick="filterCharacter('eva', this)">Evà</div>
+          <div class="char-pill" onclick="filterCharacter('ran', this)">Con Rắn</div>
+          <div class="char-pill" onclick="filterCharacter('maria', this)">Mẹ Maria</div>
+          <div class="char-pill" onclick="filterCharacter('giuse', this)">Thánh Giuse</div>
+          <div class="char-pill" onclick="filterCharacter('elizabeth', this)">Elizabeth / Da-ca-ri-a</div>
+          <div class="char-pill" onclick="filterCharacter('ho-hang', this)">Họ hàng</div>
+          <div class="char-pill" onclick="filterCharacter('linh', this)">Lính kiểm tra</div>
+          <div class="char-pill" onclick="filterCharacter('chu-quan', this)">Vợ chồng chủ quán</div>
+          <div class="char-pill" onclick="filterCharacter('muc-dong', this)">Mục Đồng</div>
+          <div class="char-pill" onclick="filterCharacter('thien-than', this)">Thiên Thần</div>
+          <div class="char-pill" onclick="filterCharacter('ba-vua', this)">Ba Vua</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Script -->
+    <main class="content-area">
+      <!-- Hero Header -->
+      <header class="script-header-hero">
+        <div class="hero-sparkle">✨ 🌟 ✨</div>
+        <h1 class="hero-title">CANH THỨC GIÁNG SINH 2026</h1>
+        <p class="hero-subtitle">Vở diễn hoạt cảnh phụng vụ Đêm Thánh Giáng Sinh</p>
+        <div class="hero-meta">
+          <span>✍️ <strong>Biên soạn:</strong> Savio. Nguyễn Hoàng Vũ &amp; Dominico. Vương Ngọc Gia Bảo</span>
+          <span>📅 Mùa Giáng Sinh 2026</span>
+        </div>
+      </header>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 1: AĐAM - EVÀ -->
+      <!-- ============================================== -->
+      <section id="canh-1" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>🌿</span> CẢNH 1: AĐAM - EVÀ</h2>
+          <span class="scene-subtitle">Sáng tạo vũ trụ, muôn loài &amp; Biến cố Sa ngã</span>
+        </div>
+
+        <!-- Lời dẫn sáng tạo -->
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Khi vũ trụ còn bao phủ trong tĩnh lặng, Đức Chúa là Thiên Chúa, Đấng tạo hóa muôn loài đã phán: <em>"Hãy có
+              ánh sáng"</em>, và từ lời quyền năng ấy, ánh sáng bừng lên khởi đầu cho công trình sáng tạo vĩ đại.</p>
+          <p style="margin-top: 8px;">Ngài phân rẽ trời và đất, đại dương và đất liền, những ngọn núi, những dòng sông,
+            cây cỏ và muôn loài muôn vật / đều được Ngài dựng nên với sự hoàn mỹ tuyệt vời. Nhưng, tất cả chỉ là sự
+            chuẩn
+            bị cho đỉnh cao của công trình tạo dựng.</p>
+          <p style="margin-top: 8px;">Đức Chúa là Thiên Chúa dựng nên Ađam từ bụi đất / và thổi vào ông hơi thở của sự
+            sống, / ông là con người đầu tiên trên trái đất.</p>
+        </div>
+
+        <div class="stage-action">
+          🎭 Cảnh Ađam vui đùa cùng muôn thú.
+        </div>
+
+        <div class="dialogue-row script-item" data-character="adam">
+          <span class="char-badge badge-adam">Ađam</span>
+          <div class="dialogue-content">
+            Bạn mập kia đứng lại, bạn dễ thương quá, lông của bạn thật là mềm.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="muon-thu">
+          <span class="char-badge badge-adam">Muôn thú</span>
+          <div class="dialogue-content">
+            Ađam ơi, beeeeeeee mình cũng muốn được gọi bằng tên giống như cậu vậy đó, hay là cậu đặt tên cho tụi mình
+            đi.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="adam">
+          <span class="char-badge badge-adam">Ađam</span>
+          <div class="dialogue-content">
+            Uhhhhh, đặt tên hả? Được rồi, vậy thì tớ gọi cậu là cừu nha, còn cậu là sư tử, cậu là đại bàng…..
+          </div>
+        </div>
+
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Đức Chúa là Thiên Chúa để Ađam đặt tên cho muôn vật muôn loài, nhưng Ađam không tìm được một trợ tá tương
+            xứng trong môn loài.</p>
+        </div>
+
+        <div class="stage-action">
+          🎭 (Ađam và muôn thú ngủ)
+        </div>
+
+        <div class="dialogue-row script-item" data-character="thien-chua">
+          <span class="char-badge badge-god">Đức Chúa phán</span>
+          <div class="dialogue-content">
+            Con người ở một mình thì không tốt, Ta sẽ làm cho nó một trợ tá tương xứng với nó, và từ xương lấy từ Ađam,
+            Đức Chúa dựng nên Evà / người bạn đồng hành trọn đời của Ađam.<br>
+            Ađam Evà không chỉ là con người đầu tiên / mà còn là biểu tượng của tình yêu, / sự khởi đầu của con người
+            trong vườn Địa Đàng, / nơi ngập tràn ân sủng và tình yêu của Thiên Chúa.
+          </div>
+        </div>
+
+        <!-- ===== NHẠC CẢNH 1: ĐỊA CẦU HOAN CA ===== -->
+        <div class="audio-scene-player script-item" id="diaCauPlayerCard" data-character="adam eva">
+          <div class="player-header">
+            <div class="player-badge">
+              <span class="music-icon-pulse">🎶</span>
+              <span>NHẠC CẢNH 1 &bull; ĐỊA CẦU HOAN CA</span>
+            </div>
+            <div class="player-cue-tag">Múa bài Địa cầu hoan ca _ Sơn Túi Đỏ</div>
+          </div>
+
+          <div class="player-main">
+            <div class="disc-art">
+              <div class="disc-vinyl" data-role="vinyl">
+                <img src="diacau-cover.jpg" alt="Địa Cầu Hoan Ca Cover" class="disc-cover-img"
+                  onerror="this.style.display='none'">
+              </div>
+            </div>
+
+            <div class="track-details">
+              <div class="track-title-row">
+                <h3 class="track-title">Địa Cầu Hoan Ca (Sơn Túi Đỏ)</h3>
+                <span class="track-format-badge">MP3 AUDIO</span>
+              </div>
+              <div class="track-action-desc">
+                <em>"🎶 (Múa bài Địa cầu hoan ca _ Sơn Túi Đỏ)"</em>
+              </div>
+
+              <div class="sound-wave" data-role="wave">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="player-timeline">
+            <span class="time-display" data-role="current">00:00</span>
+            <div class="progress-container" data-role="progress" title="Nhấp để tua đến đoạn cần nghe">
+              <div class="progress-bar-fill" data-role="fill"></div>
+              <div class="progress-thumb" data-role="thumb"></div>
+            </div>
+            <span class="time-display" data-role="total">--:--</span>
+          </div>
+
+          <div class="player-controls">
+            <div class="controls-left">
+              <button class="player-btn" data-role="back" title="Tua lùi 5 giây"><span>↺ 5s</span></button>
+              <button class="player-btn-play" data-role="play" title="Phát / Tạm dừng">
+                <span data-role="playIcon">▶</span>
+              </button>
+              <button class="player-btn" data-role="forward" title="Tua tới 5 giây"><span>5s ↻</span></button>
+              <button class="player-btn" data-role="stop" title="Dừng và về đầu bài"><span>⏹ Dừng</span></button>
+            </div>
+
+            <div class="controls-right">
+              <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
+                  Lặp</span></button>
+              <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
+                  data-role="speedVal">1.0x</span></button>
+              <div class="volume-control">
+                <button class="player-btn-icon" data-role="mute" title="Bật / Tắt tiếng">
+                  <span data-role="volIcon">🔊</span>
+                </button>
+                <input type="range" min="0" max="1" step="0.05" value="0.9" class="volume-slider" data-role="volume"
+                  title="Âm lượng">
+              </div>
+            </div>
+          </div>
+
+          <div class="stage-cue-tip">
+            <span class="cue-icon">💡</span>
+            <div class="cue-text">
+              <strong>Lưu ý Đạo diễn &amp; Bộ phận Âm thanh:</strong>
+              Sau lời tạo dựng Evà, bật nhạc <em>Địa Cầu Hoan Ca</em> để Ađam, Evà và muôn thú múa trong vườn Địa Đàng.
+              Hết bài múa, chuyển sang cảnh Evà nhởn nhơ tiến dần tới cây cấm.
+            </div>
+          </div>
+
+          <button class="lyrics-toggle-btn" data-role="lyricsBtn">
+            <span>📜 Lời Bài Hát &bull; Địa Cầu Hoan Ca (Sơn Túi Đỏ)</span>
+            <span data-role="lyricsArrow">▼ Mở lời</span>
+          </button>
+
+          <div class="lyrics-drawer" data-role="lyricsDrawer">
+            <div class="verse-group">
+              <span class="verse-tag badge-adam">1 &bull; Lời 1</span>
+              <p>1. Vạn vật trên thế giới này đều do bàn tay của Chúa<br>Sông núi biển trời trăng sao đều do tay Chúa
+                tác tạo<br>Ngài dựng nên ánh sáng chiếu soi vạn vật trong bóng đêm<br>Ngài dựng nên muôn thú, hát ca tôn
+                vinh danh Chúa mãi muôn đời<br>Và Ngài tạo tác nên con người giống hình ảnh Ngài<br>Cho con người làm
+                chủ mọi vật Ngài tạo nên.</p>
+            </div>
+
+            <div class="verse-group" style="background: rgba(245, 197, 24, 0.08); padding: 12px; border-radius: 8px;">
+              <span class="verse-tag badge-god" style="color: var(--gold-primary); font-weight: bold;">[Chorus:]</span>
+              <p style="font-weight: 600; color: var(--gold-light);">Tạ ơn quyền năng của Chúa ngất cao từ tầng trời
+                xanh<br>Vì Ngài yêu thương con nên đã tác thành mọi thứ cho con<br>Để con ra đi mọi nơi truyền rao danh
+                Chúa giữa đời<br>Địa cầu cùng vang tiếng nhạc và tôn vinh danh thánh Chúa muôn đời <em>(2
+                  lần)</em><br>Dâng lời tạ ơn.</p>
+            </div>
+          </div>
+
+          <audio data-role="audio" preload="metadata" src="Địa cầu hoan ca - Sơn túi đỏ.mp3">
+            Trình duyệt của bạn không hỗ trợ thẻ audio. Bạn có thể mở trực tiếp file
+            <a href="Địa cầu hoan ca - Sơn túi đỏ.mp3">Địa cầu hoan ca - Sơn túi đỏ.mp3</a>.
+          </audio>
+        </div>
+
+        <!-- Cám dỗ & Sa ngã -->
+        <div class="stage-action">
+          🎭 Eva nhởn nhơ quanh vườn địa đàng, tiến dần tới cây cấm. Bỗng có tiếng ...
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ran">
+          <span class="char-badge badge-ran">Rắn</span>
+          <div class="dialogue-content">
+            Chào Evà, / người phụ nữ xinh đẹp nhất quả đất.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="eva">
+          <span class="char-badge badge-eva">Evà</span>
+          <div class="dialogue-content">
+            Rắn thật là dẻo mép, / ở đây có mỗi mình tôi là nữ hà, / thì tôi đây không đẹp nhất / thì là đẹp nhì
+            aaaaaaà?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ran">
+          <span class="char-badge badge-ran">Rắn</span>
+          <div class="dialogue-content">
+            Hỡi con người, / phải chăng Thiên Chúa cấm các ngươi không được ăn hết mọi trái cây trong vườn?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="eva">
+          <span class="char-badge badge-eva">Eva</span>
+          <div class="dialogue-content">
+            Không phải đâu rắn à, tất cả trái cây trong vườn, thì chúng tôi được ăn. Chỉ trừ cái trái cây ở giữa vườn
+            thì
+            không. Vì Thiên Chúa đã bảo: các ngươi không được ăn, không được đụng vào kẻo phải chết.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ran">
+          <span class="char-badge badge-ran">Rắn</span>
+          <div class="dialogue-content">
+            Chẳng chết chóc gì đâu. / Nhưng Thiên Chúa biết ngày nào ông bà ăn trái cây ấy, / mắt ông bà sẽ mở ra / và
+            ông bà sẽ nên như những vị thần, biết điều thiện điều ác.<br>
+            Này Evà, hãy ăn thử một trái xem, ta nói / nó ngooooọt / nó ngoooooon lắm.<br>
+            Đã vậy / ăn vào rồi / thì sẽ được khôn ngoan / được sáng láng như Thiên Chúa.
+          </div>
+        </div>
+
+        <div class="stage-action">
+          🎭 (Eva bối rối nghĩ ngợi rồi quay lại nhón gót hái trái và ăn, rồi đưa cho cả chồng cùng ở đó với mình, ông
+          cũng ăn). Và kìa chuyện gì đã xảy ra. Ađam và Eva xấu hổ chạy vô trong cánh gà mặc trang phục lá cây.
+        </div>
+
+        <div class="dialogue-row script-item" data-character="thien-chua">
+          <span class="char-badge badge-god">Chúa gọi</span>
+          <div class="dialogue-content">
+            Adam! Adam! Ngươi ở đâu?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="adam">
+          <span class="char-badge badge-adam">Adam</span>
+          <div class="dialogue-content">
+            Tôi đã nghe tiếng gọi của Người, nhưng tôi sợ / vì tôi trần truồng, nên tôi ẩn núp.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="thien-chua">
+          <span class="char-badge badge-god">Chúa</span>
+          <div class="dialogue-content">
+            Ai đã cho ngươi biết là ngươi trần truồng, hay ngươi đã ăn trái cây mà Ta cấm ngươi không được ăn?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="adam">
+          <span class="char-badge badge-adam">Adam</span>
+          <div class="dialogue-content">
+            Người đàn bà mà Ngài đã đặt bên tôi, chính nàng đã cho tôi trái cây ấy và tôi đã ăn.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="thien-chua">
+          <span class="char-badge badge-god">Chúa</span>
+          <div class="dialogue-content">
+            Tại sao ngươi làm như vậy hỡi Eva?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="eva">
+          <span class="char-badge badge-eva">Eva</span>
+          <div class="dialogue-content">
+            Con rắn đã lừa dối tôi nên tôi đã ăn.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="thien-chua">
+          <span class="char-badge badge-god">Thiên Chúa</span>
+          <div class="dialogue-content">
+            Hỡi loài rắn độc, bởi vì ngươi đã làm điều đó thì ngươi hãy trở nên đồ bị chúc dữ. Ngươi phải bò đi bằng
+            bụng
+            và phải ăn bùn đất mọi ngày trong đời mi. <strong>Ta sẽ đặt mối thù giữa mi và người đàn bà, giữa dòng dõi
+              mi và dòng dõi người, dòng dõi người đàn bà đạp nát đầu mi, còn mi sẽ rình cắn gót chân nó.</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 2: TRUYỀN TIN -->
+      <!-- ============================================== -->
+      <section id="canh-2" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>✨</span> CẢNH 2: TRUYỀN TIN</h2>
+          <span class="scene-subtitle">Kế hoạch Cứu Độ &amp; Sứ thần Gabriel truyền tin cho Đức Maria</span>
+        </div>
+
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Tổ tông loài người đã phạm tội và đã bị đuổi khỏi vườn địa đàng, nhưng Thiên Chúa vẫn một lòng yêu thương,
+            Ngài đã chuẩn bị một kế hoạch để cứu chuộc loài người.</p>
+          <p style="margin-top: 8px;">Kế hoạch ấy đã trải dài…..rất dài, và trong suốt thời gian ấy Thiên Chúa vẫn luôn
+            chăm sóc và hướng dẫn dân Ngài qua các Tổ phụ như Abraham, Issaac, Giacop, qua các Thẩm phán, các tiên tri…
+          </p>
+          <p style="margin-top: 8px;">Sau khi đã chuẩn bị và dọn lòng cho dân Chúa đón nhận Đấng Cứu Thế, giờ đây chính
+            là thời điểm Thiên Chúa thực hiện lời minh ước mà Người đã ký kết với Tổ phụ chúng ta.</p>
+          <p style="margin-top: 8px;">Vào thời Hoàng đế Cesar Augustô, Thiên Chúa đã sai Sứ Thần của Người đến với một
+            trinh nữ đã đính hôn với 1 người tên là Giuse thuộc chi họ Đavid. Trinh nữ tên là Maria, Maria cũng như
+            những người Do Thái lúc bấy giờ, hết lòng cầu khẩn nài xin Thiên Chúa ban Đấng Cứu Tinh cho dân Người.</p>
+        </div>
+
+        <div class="stage-action">
+          🎭 (Thiên thần Gabriel truyền tin cho Đức Maria)
+        </div>
+
+        <!-- ===== NHẠC CẢNH 2: TRUYỀN TIN ===== -->
+        <div class="audio-scene-player script-item" id="truyenTinPlayerCard" data-character="maria thien-than">
+          <div class="player-header">
+            <div class="player-badge">
+              <span class="music-icon-pulse">🎶</span>
+              <span>NHẠC CẢNH 2 &bull; TRUYỀN TIN</span>
+            </div>
+            <div class="player-cue-tag">Sứ Thần Gabriel &amp; Đức Maria</div>
+          </div>
+
+          <div class="player-main">
+            <div class="disc-art">
+              <div class="disc-vinyl" data-role="vinyl">
+                <img src="magnificat-cover.jpg" alt="Truyền Tin Cover" class="disc-cover-img"
+                  onerror="this.style.display='none'">
+              </div>
+            </div>
+
+            <div class="track-details">
+              <div class="track-title-row">
+                <h3 class="track-title">Truyền Tin (Sứ Thần &amp; Maria)</h3>
+                <span class="track-format-badge">MP3 AUDIO</span>
+              </div>
+              <div class="track-action-desc">
+                <em>"🎶 Sứ thần Gabriel truyền tin cho Đức Maria &amp; Tiếng thưa Xin Vâng"</em>
+              </div>
+
+              <div class="sound-wave" data-role="wave">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="player-timeline">
+            <span class="time-display" data-role="current">00:00</span>
+            <div class="progress-container" data-role="progress" title="Nhấp để tua đến đoạn cần nghe">
+              <div class="progress-bar-fill" data-role="fill"></div>
+              <div class="progress-thumb" data-role="thumb"></div>
+            </div>
+            <span class="time-display" data-role="total">--:--</span>
+          </div>
+
+          <div class="player-controls">
+            <div class="controls-left">
+              <button class="player-btn" data-role="back" title="Tua lùi 5 giây"><span>↺ 5s</span></button>
+              <button class="player-btn-play" data-role="play" title="Phát / Tạm dừng">
+                <span data-role="playIcon">▶</span>
+              </button>
+              <button class="player-btn" data-role="forward" title="Tua tới 5 giây"><span>5s ↻</span></button>
+              <button class="player-btn" data-role="stop" title="Dừng và về đầu bài"><span>⏹ Dừng</span></button>
+            </div>
+
+            <div class="controls-right">
+              <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
+                  Lặp</span></button>
+              <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
+                  data-role="speedVal">1.0x</span></button>
+              <div class="volume-control">
+                <button class="player-btn-icon" data-role="mute" title="Bật / Tắt tiếng">
+                  <span data-role="volIcon">🔊</span>
+                </button>
+                <input type="range" min="0" max="1" step="0.05" value="0.9" class="volume-slider" data-role="volume"
+                  title="Âm lượng">
+              </div>
+            </div>
+          </div>
+
+          <div class="stage-cue-tip">
+            <span class="cue-icon">💡</span>
+            <div class="cue-text">
+              <strong>Lưu ý Đạo diễn &amp; Bộ phận Âm thanh:</strong>
+              Sau lời dẫn kết thúc (<em>"hết lòng cầu khẩn nài xin Thiên Chúa ban Đấng Cứu Tinh cho dân Người"</em>),
+              bật nhạc <em>Truyền Tin</em>. Sứ Thần Gabriel và Đức Maria diễn đối thoại theo lời ca và cử chỉ thánh
+              thiện.
+              Hết bài hát, chuyển sang Cảnh 3: Gioan Tẩy Giả.
+            </div>
+          </div>
+
+          <button class="lyrics-toggle-btn" data-role="lyricsBtn">
+            <span>📜 Lời Bài Hát &bull; Truyền Tin</span>
+            <span data-role="lyricsArrow">▼ Mở lời</span>
+          </button>
+
+          <div class="lyrics-drawer" data-role="lyricsDrawer">
+            <div class="verse-group">
+              <span class="verse-tag badge-god">Sứ thần Gabriel</span>
+              <p>Mừng vui lên, mừng vui lên, hỡi Đấng đầy ơn sủng<br>
+                Thiên Chúa ở cùng bà, Thiên Chúa hằng ở với bà.<br>
+                Hỡi Maria xin đừng sợ vì bà đẹp lòng Thiên Chúa.<br>
+                Này đây bà sẽ thụ thai, sinh hạ một con trai, và đặt tên là Giêsu.<br>
+                Người sẽ nên cao cả, và sẽ được gọi là Con Đấng Tối Cao.<br>
+                Thiên Chúa sẽ ban cho Người ngai vàng vua Đavit tổ tiên Người.<br>
+                Người sẽ trị vì nhà Giacob đến muôn đời, và triều đại Người sẽ vô cùng vô tận.</p>
+            </div>
+
+            <div class="verse-group">
+              <span class="verse-tag badge-maria">Mẹ Maria</span>
+              <p>Việc ấy sẽ xảy ra cách nào, vì tôi không biết đến việc vợ chồng?</p>
+            </div>
+
+            <div class="verse-group">
+              <span class="verse-tag badge-god">Sứ thần Gabriel</span>
+              <p>Thánh Thần sẽ ngự xuống trên bà, và quyền năng Đấng Tối Cao sẽ rợp bóng trên bà.<br>
+                Vì thế Đấng Thánh sắp sinh ra sẽ được gọi là Con Thiên Chúa.<br>
+                Kìa Isave chị họ bà tuổi đã già thì nay đã mang thai, vì không có việc gì mà Thiên Chúa không làm được.
+              </p>
+            </div>
+
+            <div class="verse-group" style="background: rgba(245, 197, 24, 0.08); padding: 12px; border-radius: 8px;">
+              <span class="verse-tag badge-maria" style="color: var(--gold-primary); font-weight: bold;">Mẹ Maria &bull;
+                Lời Xin Vâng</span>
+              <p style="font-weight: 600; color: var(--gold-light);">
+                Vâng, tôi đây là nữ tỳ của Chúa<br>
+                Xin Chúa cứ làm cho tôi như lời sứ thần truyền.<br>
+                Vâng, tôi đây là nữ tỳ của Chúa<br>
+                Xin Chúa cứ làm cho tôi như lời sứ thần truyền.
+              </p>
+            </div>
+          </div>
+
+          <audio data-role="audio" preload="metadata" src="Truyền_Tin.mp3">
+            Trình duyệt của bạn không hỗ trợ thẻ audio. Bạn có thể mở trực tiếp file
+            <a href="Truyền_Tin.mp3">Truyền_Tin.mp3</a>.
+          </audio>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 3: GIOAN TẨY GIẢ -->
+      <!-- ============================================== -->
+      <section id="canh-3" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>🕊️</span> CẢNH 3: GIOAN TẨY GIẢ</h2>
+          <span class="scene-subtitle">Đức Maria thăm viếng bà Elisabét &amp; Biến cố sinh Gioan Tiền Hô</span>
+        </div>
+
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Và từ nơi hoang địa cằn cỗi, có tiếng hô lớn: <em>"Hãy dọn đường cho Chúa, hãy sửa đường Chúa cho ngay
+              thẳng, và muôn dân sẽ nhìn thấy ơn cứu độ của Thiên Chúa chúng ta."</em></p>
+          <p style="margin-top: 8px;">Và Maria vội vã lên đường đến nơi hoang địa cằn cỗi ấy, đến một thành ở miền núi
+            của nhà Giuđa để thăm viếng và chăm sóc cho người chị họ của cô là Elisabét hiện đang mang thai được 6 tháng
+            như lời Thiên sứ Gabriel đã loan báo.</p>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Mẹ Maria</span>
+          <div class="dialogue-content">
+            <em>(Vừa mới đến)</em> Chị Elizabeth ơi, chị Elizabeth...
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-maria">Bà Elizabeth</span>
+          <div class="dialogue-content">
+            Ủa, Maria!
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Mẹ Maria</span>
+          <div class="dialogue-content">
+            Dạ em mới tới. Em chào anh Da-ca-ri-a nha...
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content">
+            <em>(Ú ú ớ ớ gật đầu vui vẻ chào lại.)</em>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Maria</span>
+          <div class="dialogue-content">
+            Ủa, anh Da-ca-ri-a bị sao vậy chị?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-maria">Bà Elizabeth</span>
+          <div class="dialogue-content">
+            Ảnh bị câm rồi, cái tội không tin lời Thiên thần làm chi để người phạt cho ra như vậy đấy... nhưng em yên
+            tâm, thiên thần đã nói rồi chỉ bị 1 thời gian thôi, chứ hổng có bị luôn đâu.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content">
+            <em>(Ú ú ớ ớ gật đầu ra vẻ đồng ý.)</em>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-maria">Bà Elizabeth</span>
+          <div class="dialogue-content">
+            Thôi, vô đây đi em / Maria ơi, em coi nè, vừa mới thấy em thôi là con chị nó đạp bịch bịch luôn á. Y như là
+            nó nhảy lên vui mừng vậy đó. Nè coi nè coi nè. Bởi vậy quá diễm phúc cho chị được Mẹ Thiên Chúa đến viếng
+            thăm như vậy.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Mẹ Maria</span>
+          <div class="dialogue-content">
+            Chị, anh nói gì vậy chị?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-maria">Bà Elizabeth</span>
+          <div class="dialogue-content">
+            Là Hallelujah, là chúc tụng Đức Chúa đó em. Thôi đi vô đây / kể cho chị nghe / những việc mà Thiên Chúa đã
+            làm cho em đi.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Mẹ Maria</span>
+          <div class="dialogue-content">
+            <em>(Thoại)</em> Dạ, và em đã gặp một thiên sứ là Gabriel, người đã cho em biết em sẽ cưu mang con Thiên
+            Chúa được thụ thai bởi quyền năng Chúa Thánh Thần và em đã thưa: <strong>xin vâng.</strong>
+          </div>
+        </div>
+
+        <!-- ===== NHẠC CẢNH 3: MAGNIFICAT ===== -->
+        <div class="audio-scene-player script-item" id="magnificatPlayerCard" data-character="maria elizabeth muc-dong">
+          <div class="player-header">
+            <div class="player-badge">
+              <span class="music-icon-pulse">🎶</span>
+              <span>NHẠC CẢNH 3 &bull; MAGNIFICAT</span>
+            </div>
+            <div class="player-cue-tag">Maria, Elisabet &amp; các mục đồng múa</div>
+          </div>
+
+          <div class="player-main">
+            <div class="disc-art">
+              <div class="disc-vinyl" data-role="vinyl">
+                <img src="magnificat-cover.jpg" alt="Magnificat Cover" class="disc-cover-img"
+                  onerror="this.style.display='none'">
+              </div>
+            </div>
+
+            <div class="track-details">
+              <div class="track-title-row">
+                <h3 class="track-title">Magnificat</h3>
+                <span class="track-format-badge">MP3 AUDIO</span>
+              </div>
+              <div class="track-action-desc">
+                <em>"🎶 Maria và Elisabet và các mục đồng múa bài Magnificat"</em>
+              </div>
+
+              <div class="sound-wave" data-role="wave">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="player-timeline">
+            <span class="time-display" data-role="current">00:00</span>
+            <div class="progress-container" data-role="progress" title="Nhấp để tua đến đoạn cần nghe">
+              <div class="progress-bar-fill" data-role="fill"></div>
+              <div class="progress-thumb" data-role="thumb"></div>
+            </div>
+            <span class="time-display" data-role="total">--:--</span>
+          </div>
+
+          <div class="player-controls">
+            <div class="controls-left">
+              <button class="player-btn" data-role="back" title="Tua lùi 5 giây"><span>↺ 5s</span></button>
+              <button class="player-btn-play" data-role="play" title="Phát / Tạm dừng">
+                <span data-role="playIcon">▶</span>
+              </button>
+              <button class="player-btn" data-role="forward" title="Tua tới 5 giây"><span>5s ↻</span></button>
+              <button class="player-btn" data-role="stop" title="Dừng và về đầu bài"><span>⏹ Dừng</span></button>
+            </div>
+
+            <div class="controls-right">
+              <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
+                  Lặp</span></button>
+              <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
+                  data-role="speedVal">1.0x</span></button>
+              <div class="volume-control">
+                <button class="player-btn-icon" data-role="mute" title="Bật / Tắt tiếng">
+                  <span data-role="volIcon">🔊</span>
+                </button>
+                <input type="range" min="0" max="1" step="0.05" value="0.9" class="volume-slider" data-role="volume"
+                  title="Âm lượng">
+              </div>
+            </div>
+          </div>
+
+          <div class="stage-cue-tip">
+            <span class="cue-icon">💡</span>
+            <div class="cue-text">
+              <strong>Lưu ý Đạo diễn &amp; Bộ phận Âm thanh:</strong>
+              Sau câu <em>"và em đã thưa: xin vâng."</em>, bật nhạc Magnificat để Maria, Elisabet và các mục đồng múa.
+              Hết bài hát, chuyển sang lời dẫn ngày vui của gia đình ông Da-ca-ri-a.
+            </div>
+          </div>
+
+          <button class="lyrics-toggle-btn" data-role="lyricsBtn">
+            <span>📜 Lời Bài Hát &bull; Magnificat</span>
+            <span data-role="lyricsArrow">▼ Mở lời</span>
+          </button>
+
+          <div class="lyrics-drawer" data-role="lyricsDrawer">
+            <div class="verse-group">
+              <span class="verse-tag badge-maria">Lời 1 &bull; Mẹ Maria</span>
+              <p>Hồn con xin tôn vinh Chúa<br>Thần trí con vui mừng hân hoan<br>Vì Đấng Cứu Độ đoái nhìn đến con<br>Phận
+                tôi tớ nhỏ bé hèn mọn.</p>
+            </div>
+
+            <div class="verse-group" style="background: rgba(245, 197, 24, 0.08); padding: 12px; border-radius: 8px;">
+              <span class="verse-tag badge-god" style="color: var(--gold-primary); font-weight: bold;">Điệp khúc &bull;
+                Mẹ Maria</span>
+              <p style="font-weight: 600; color: var(--gold-light);">Mừng vui lên, hồn con ơi!<br>Ngợi khen danh thánh
+                của Ngài<br>Từ nay muôn thế hệ<br>Diễm phúc gọi tên con.</p>
+            </div>
+
+            <div class="verse-group">
+              <span class="verse-tag badge-maria">Lời 2 &bull; Mẹ Maria</span>
+              <p>Đấng Toàn Năng Chí Thánh Chí Tôn<br>Đã làm cho con những điều cao cả<br>Lòng nhân ái của Ngài trải qua
+                muôn thế hệ<br>Dành cho ai kính sợ Ngài.</p>
+            </div>
+
+            <div class="verse-group">
+              <span class="verse-tag badge-maria">Lời 3 &bull; Mẹ Maria &amp; Elizabeth</span>
+              <p>Cánh tay Ngài giơ oai quyền<br>Tan tác kẻ kiêu căng trong lòng<br>Hạ người quyền thế khỏi ngai<br>Nâng
+                kẻ khiêm nhường lên cao.<br>Kẻ đói nghèo Ngài ban đầy ơn<br>Người giàu sang về tay trắng<br>Lời hứa xưa
+                Ngài vẫn nhớ<br>Cùng tổ tiên muôn đời.</p>
+            </div>
+
+            <div class="verse-group" style="background: rgba(245, 197, 24, 0.08); padding: 12px; border-radius: 8px;">
+              <span class="verse-tag badge-god" style="color: var(--gold-primary); font-weight: bold;">Kết &bull; Mẹ
+                Maria &amp; Elizabeth</span>
+              <p style="font-weight: 600; color: var(--gold-light);">Mừng vui lên, hồn con ơi!<br>Ngợi khen danh thánh
+                của Ngài<br>Từ nay muôn thế hệ<br>Diễm phúc gọi tên con.<br>Nào cùng ngợi khen danh Chúa<br>Đến muôn
+                ngàn đời. <strong>Amen.</strong></p>
+            </div>
+          </div>
+
+          <audio data-role="audio" preload="metadata" src="Magnificat3.mp3">
+            Trình duyệt của bạn không hỗ trợ thẻ audio. Bạn có thể mở trực tiếp file
+            <a href="Magnificat3.mp3">Magnificat3.mp3</a>.
+          </audio>
+        </div>
+
+        <!-- Biến cố sinh & đặt tên Gioan -->
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Và rồi / thời gian thấm thoát đã qua, đã đến ngày vui của gia đình ông Da-ca-ri-a, rất đông người trong họ
+            hàng nhà ông đến chúc mừng.</p>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Một người họ hàng</span>
+          <div class="dialogue-content">
+            <em>(Trong cánh gà chạy ra)</em> Là một bé trai, / Sứ Thần Chúa đã nói điều đó, và nó đã ứng nghiệm. Một con
+            trai đã được sinh ra cho Da-ca-ri-a và Ê-li-sa-bet.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 1</span>
+          <div class="dialogue-content">
+            Chúc mừng 2 ông bà nha
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 2</span>
+          <div class="dialogue-content">
+            Mẹ tròn con vuông! Chúc mừng, chúc mừng 2 ông bà nha
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 3</span>
+          <div class="dialogue-content">
+            Hôm nay cháu bé đã được cắt bì, được dâng hiến / để trọn vẹn thuộc về Đức Chúa, chúc mừng hai ông bà nha.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content">
+            <em>(Ú ú ớ ớ tươi cười gật đầu cảm ơn.)</em>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 1</span>
+          <div class="dialogue-content">
+            Thế ông bà tính đặt tên cháu là gì?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 2</span>
+          <div class="dialogue-content">
+            Phải lấy tên Da-ca-ri-a của cha cháu mà đặt cho cháu chứ còn gì nữa, vì đây là con đầu lòng mà.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content">
+            <em>(Ú ú ớ ớ xua tay, lắc đầu.)</em>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-maria">Bà Elisabet</span>
+          <div class="dialogue-content">
+            <strong>Không, tên cháu là Gio-an.</strong>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content">
+            <em>(Ú ú ớ ớ gật đầu ra hiệu là đúng rồi.)</em>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Tất cả họ hàng</span>
+          <div class="dialogue-content">
+            <em>(Đều ngạc nhiên)</em> Đâu có ai trong gia tộc chúng ta có tên đó, sao đặt tên lạ vậy chị?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 3</span>
+          <div class="dialogue-content">
+            Thôi, chúng ta cùng hỏi anh Da-ca-ri-a cha cháu xem, anh muốn đặt tên cháu là gì?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content">
+            <em>(Ú ú ớ ớ ra hiệu cho xin một tấm bảng để viết)</em>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 1</span>
+          <div class="dialogue-content">
+            Anh ấy yêu cầu một cái gì đó để viết lên, chạy vô phòng giáo lý kiếm cho anh ấy một tấm bảng đi.
+          </div>
+        </div>
+
+        <div class="stage-action">
+          🎭 Sau khi nhận được tấm bảng, ông Da-ca-ri-a liền viết: <strong>tên cháu là Gio-an</strong>. (Ngay lúc ấy ông
+          nói được trở lại)
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content">
+            Ha..ha…halêluia,<br>
+            Ơ tôi nói lại được rồi này. Halêluia, chúc tụng Đức Chúa, chúc tụng Đức Chúa!
+          </div>
+        </div>
+
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Khi ấy ông Da-ca-ri-a được đầy Thánh Thần liền bế em bé trên tay và nói tiên tri về con trẻ:</p>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="elizabeth">
+          <span class="char-badge badge-god">Da-ca-ri-a</span>
+          <div class="dialogue-content" style="font-weight: 500; line-height: 1.8;">
+            Hài nhi hỡi, con sẽ mang tước hiệu<br>
+            Là ngôn sứ của Đấng Tối Cao<br>
+            Con sẽ đi trước Chúa, / mở lối cho Người<br>
+            bảo cho dân Chúa biết<br>
+            Người sẽ cứu độ<br>
+            là tha cho họ hết mọi tội khiên.<br>
+            Chúc tụng, chúc tụng Đức Chúa, chúc tụng Đức Chúa đến muôn đời Halêluia
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Tất cả họ hàng</span>
+          <div class="dialogue-content">
+            <em>(Dòng tộc của ông Da-ca-ri-a đều kinh ngạc)</em> Trời đất ơi, lạ lùng quá, tay chân tôi rung hết cả lên
+            rồi đây này, ôi chúc tụng Đức Chúa, chúc tụng Đức Chúa.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 1</span>
+          <div class="dialogue-content">
+            Con trẻ này rồi sẽ nên thế nào / vì quả thật / bàn tay của Đức Chúa, Thiên Chúa của chúng ta đã ở với nó.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ho-hang">
+          <span class="char-badge badge-soldier">Họ hàng 2, 3</span>
+          <div class="dialogue-content">
+            <em>(Tiếp lời)</em> Uh thật lạ lùng quá, chúc tụng Đức Chúa đến muôn đời.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 4: THÔNG BÁO KIỂM TRA DÂN SỐ -->
+      <!-- ============================================== -->
+      <section id="canh-4" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>📜</span> CẢNH 4: THÔNG BÁO KIỂM TRA DÂN SỐ</h2>
+          <span class="scene-subtitle">Chiếu chỉ của Hoàng đế Cê-da-au-gut-tô</span>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 1</span>
+          <div class="dialogue-content">
+            Loa loa loa loa, loa loa loa loa
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 2</span>
+          <div class="dialogue-content">
+            beng beng beng beng
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 1 &amp; Lính 2</span>
+          <div class="dialogue-content">
+            <strong>Lính 1 (nói và lính 2 nói vuốt đuôi theo):</strong> Đây là lệnh của hoàng đế Cê-da-au-gut-tô<br>
+            <strong>Lính 2:</strong> đây là lệnh của hoàng đế Si-đa-ăn-bát-tô
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 1</span>
+          <div class="dialogue-content">
+            Thằng kia, mày vừa nói cái gì thế
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 2</span>
+          <div class="dialogue-content">
+            Thì tao đọc theo mày, hoàng đế Si-đa-ăn-bát-tô.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 1</span>
+          <div class="dialogue-content">
+            Trời, Cê-da-au-gut-tô ông ơi, hoàng đế mà nghe được thì chém cái đầu mày đó, tập trung vào / đọc cho lớn để
+            cho toàn dân còn nghe thấy.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 1</span>
+          <div class="dialogue-content">
+            Loa loa loa loa, loa loa loa loa
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 2</span>
+          <div class="dialogue-content">
+            beng beng beng beng
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="linh">
+          <span class="char-badge badge-soldier">Lính 1 &amp; Lính 2</span>
+          <div class="dialogue-content">
+            <strong>Lính 1 (nói và lính 2 nói vuốt đuôi theo):</strong> Đây là lệnh của hoàng đế Cê-da-au-gut-tô, toàn
+            dân Do Thái, phải trở về nguyên quán của mình để ghi danh kiểm tra dân số, nghe chửa.<br>
+            <strong>Lính 1:</strong> chưa nghẻ.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 5: TRÊN ĐƯỜNG TỚI BÊLEM -->
+      <!-- ============================================== -->
+      <section id="canh-5" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>🌟</span> CẢNH 5: TRÊN ĐƯỜNG TỚI BÊLEM</h2>
+          <span class="scene-subtitle">Cuộc hành trình vâng phục và tin tưởng</span>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Chuẩn bị đi thôi Maria
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Maria</span>
+          <div class="dialogue-content">
+            Em lo quá anh à (Mở nhạc)
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Đừng sợ, mọi sự rồi sẽ ổn thôi, chúng ta sẽ chăm sóc con của Chúa cùng nhau. Anh vẫn nhớ lời Sứ Thần báo
+            mộng, và anh sẽ gìn giữ hài nhi như người cha được giao phó.<br>
+            Mình đi nha em.
+          </div>
+        </div>
+
+        <!-- Khúc hát Emmanuel trên đường dài thiên lý -->
+        <div class="audio-scene-player script-item" id="emmanuelPlayerCard" data-character="giuse maria">
+          <div class="player-header">
+            <div class="player-badge">
+              <span class="music-icon-pulse">🎶</span>
+              <span>NHẠC CẢNH 5 &bull; HÀNH TRÌNH BÊLEM</span>
+            </div>
+            <div class="player-cue-tag">Lồng tiếng &amp; Nhạc nền MP3</div>
+          </div>
+
+          <div class="player-main">
+            <div class="disc-art">
+              <div class="disc-vinyl" id="vinylDisc">
+                <img src="emmanuel-cover.jpg" alt="Emmanuel Cover" class="disc-cover-img"
+                  onerror="this.style.display='none'">
+              </div>
+            </div>
+
+            <div class="track-details">
+              <div class="track-title-row">
+                <h3 class="track-title">Emmanuel</h3>
+                <span class="track-format-badge">MP3 AUDIO</span>
+              </div>
+              <div class="track-action-desc">
+                <em>"🎶 Giuse và Maria hát……"</em>
+              </div>
+
+              <!-- Animated Soundwave visualizer -->
+              <div class="sound-wave" id="soundWave">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline & Progress Bar -->
+          <div class="player-timeline">
+            <span class="time-display" id="audioCurrentTime">00:00</span>
+            <div class="progress-container" id="progressContainer" title="Nhấp để tua đến đoạn cần nghe">
+              <div class="progress-bar-fill" id="progressBarFill"></div>
+              <div class="progress-thumb" id="progressThumb"></div>
+            </div>
+            <span class="time-display" id="audioTotalDuration">--:--</span>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="player-controls">
+            <div class="controls-left">
+              <!-- Replay 5s -->
+              <button class="player-btn" onclick="seekAudioRelative(-5)" title="Tua lùi 5 giây">
+                <span>↺ 5s</span>
+              </button>
+              <!-- Play / Pause Main Button -->
+              <button class="player-btn-play" id="playBtn" onclick="togglePlayAudio()" title="Phát / Tạm dừng">
+                <span id="playIcon">▶</span>
+              </button>
+              <!-- Forward 5s -->
+              <button class="player-btn" onclick="seekAudioRelative(5)" title="Tua tới 5 giây">
+                <span>5s ↻</span>
+              </button>
+              <!-- Stop Button -->
+              <button class="player-btn" onclick="stopAudio()" title="Dừng và về đầu bài">
+                <span>⏹ Dừng</span>
+              </button>
+            </div>
+
+            <div class="controls-right">
+              <!-- Loop toggle -->
+              <button class="player-btn" id="loopBtn" onclick="toggleLoopAudio()" title="Bật/Tắt lặp lại để tập dượt">
+                <span>🔁 Lặp</span>
+              </button>
+              <!-- Playback Speed -->
+              <button class="player-btn" id="speedBtn" onclick="cycleSpeedAudio()" title="Đổi tốc độ phát">
+                <span id="speedVal">1.0x</span>
+              </button>
+              <!-- Volume slider & Mute -->
+              <div class="volume-control">
+                <button class="player-btn-icon" id="muteBtn" onclick="toggleMuteAudio()" title="Bật / Tắt tiếng">
+                  <span id="volumeIcon">🔊</span>
+                </button>
+                <input type="range" min="0" max="1" step="0.05" value="0.9" class="volume-slider" id="volumeSlider"
+                  oninput="changeVolume(this.value)" title="Âm lượng">
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage Director Advice Box -->
+          <div class="stage-cue-tip">
+            <span class="cue-icon">💡</span>
+            <div class="cue-text">
+              <strong>Lưu ý Đạo diễn &amp; Bộ phận Âm thanh:</strong>
+              Giuse và Maria vừa đi vừa hát theo điệu nhạc thong thả. Khi Maria bắt đầu câu thoại tiếp theo <em>"Đường
+                còn xa không anh?"</em>, bộ phận âm thanh hạ dần âm lượng (ducking) xuống khoảng -15dB hoặc dừng nhạc để
+              tiếng nói diễn viên được nghe rõ nhất.
+            </div>
+          </div>
+
+          <!-- Collapsible Lyrics Accordion -->
+          <button class="lyrics-toggle-btn" id="lyricsToggleBtn" onclick="toggleLyricsDrawer()">
+            <span>📜 Lời Bài Hát &bull; Song Ca Giuse &amp; Maria</span>
+            <span id="lyricsArrowIcon">▼ Mở lời</span>
+          </button>
+
+          <div class="lyrics-drawer" id="lyricsDrawer">
+            <div class="verse-group">
+              <span class="verse-tag badge-giuse">Lời 1 &bull; Thánh Giuse</span>
+              <p>Từ nay cho đến sau này<br>Ta nguyện sát cánh cùng nhau<br>Dù bao khó nguy giữa đời<br>Chỉ cần đừng
+                buông cánh tay.</p>
+            </div>
+
+            <div class="verse-group">
+              <span class="verse-tag badge-maria">Lời 2 &bull; Mẹ Maria</span>
+              <p>Lời thánh ý em thuận lòng<br>Dù rằng phía trước gian truân<br>Và bởi vì em biết Chúa luôn cận
+                kề<br>Trong tim... thật bình yên.</p>
+            </div>
+
+            <div class="verse-group">
+              <span class="verse-tag badge-giuse">Lời 3 &bull; Thánh Giuse</span>
+              <p>Giữ chặt tay anh<br>Ta hướng về nơi cuối chân trời<br>Ngôi Lời giáng thế tuôn tràn hồng ân<br>Ngài trao
+                tình yêu đến vô tận<br>Để giờ đây anh trao cho em.</p>
+            </div>
+
+            <div class="verse-group" style="background: rgba(245, 197, 24, 0.08); padding: 12px; border-radius: 8px;">
+              <span class="verse-tag badge-god" style="color: var(--gold-primary); font-weight: bold;">Điệp khúc &bull;
+                Song ca Giuse &amp; Maria</span>
+              <p style="font-weight: 600; color: var(--gold-light);">Một... một phép màu, Đấng Chúa Trời<br>Là Con Chúa
+                sắp sinh ra, nhập xác phàm<br>Và Người mang ánh sáng hết tầng trời<br><strong
+                  style="font-size: 1.1em; letter-spacing: 1px;">Emmanuel!</strong></p>
+            </div>
+          </div>
+
+          <!-- HTML5 Audio Element -->
+          <audio id="emmanuelAudio" preload="metadata" src="Emmanuel.mp3">
+            Trình duyệt của bạn không hỗ trợ thẻ audio. Bạn có thể mở trực tiếp file <a
+              href="Emmanuel.mp3">Emmanuel.mp3</a>.
+          </audio>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Maria</span>
+          <div class="dialogue-content">
+            Đường còn xa không anh?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Ráng thêm một chút nữa thôi, chúng ta phải đến sớm, vì Belem chắc chắn sẽ đông người khai dân số, chúng ta
+            sẽ khó tìm được chỗ trú.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Maria</span>
+          <div class="dialogue-content">
+            Em vẫn còn đang trăn trở, hài nhi trong em rồi đây sẽ trở thành vị cứu tinh, lúc đầu em cũng lo sợ, nhưng em
+            tin thánh ý Chúa và em tin Ngài đã chuẩn bị cho hài nhi mọi sự cần thiết.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse maria">
+          <span class="char-badge badge-giuse">Giuse &amp; Maria</span>
+          <div class="dialogue-content" style="font-weight: 600; color: var(--gold-light);">
+            Xin hãy làm cho chúng con như lời Chúa phán.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 6: QUÁN TRỌ -->
+      <!-- ============================================== -->
+      <section id="canh-6" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>🚪</span> CẢNH 6: QUÁN TRỌ</h2>
+          <span class="scene-subtitle">Sự khước từ của trần gian &amp; Lòng phó thác</span>
+        </div>
+
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Đức Kitô đã đến nhà Ngài nhưng các gia nhân Ngài không tiếp nhận Ngài. Việc thế gian không chấp nhận Ngài
+            đã được thể hiện ngay từ khi Đấng Cứu Thế sắp Giáng sinh. Vì cha mẹ Ngài hiện thân là người nghèo khó.</p>
+        </div>
+
+        <!-- Gia đình chủ quán đếm tiền -->
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Này bà nó đâu !!!
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Chuyện gì thế ông
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Bà ra đây tôi nói cái này
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Ông chờ xíu, tôi đang rửa mấy cái bát
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Cứ để cho đầy tớ nó làm, tôi muốn nói chuyện với bà,
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Chuyện gì thế ông:
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Tôi nói với bà bao nhiêu lần rồi, / chuyện gì cũng đừng nhúng tay vào / chả lẽ để đầy tớ chơi không sao.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Vậy ông bảo tôi phải làm gì bây giờ
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Bà ngồi đếm tiền đi
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Tiền ngày hôm nay hả ông
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Ừm. <em>(Và rồi ông lấy ra 1 quyển Kinh Thánh)</em><br>
+            “Bà ngồi đếm tiền đi, tôi đọc Kinh Thánh”
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Ông nhớ đọc lớn cho tôi nghe nhé.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            <em>(Đọc Kinh Thánh)</em> “Các ngươi hãy giúp đỡ người nghèo khó / và đừng tiếc nuối. Vì Giavê Thiên Chúa /
+            sẽ chúc lành cho mọi công việc của ngươi..... / Nè / bao nhiêu miếng (vàng) rồi bà ?”
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            18 miếng rồi ông
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Chà / cứ cái đà kiểm tra dân số như thế này / thì chúng ta sẽ giàu to,
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Thôi ông đọc tiếp cho tôi nghe đi
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Các ngươi hãy đóng thuế thập phân, bà nhớ lời dạy để cố gắng đóng thuế thập phân cho đầy đủ nhé.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Tôi biết rồi.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Cứ như thế này mấy thầy Lêvi sẽ sang thăm quán trọ của chúng ta nhiều đây.<br>
+            Thôi bà kết sổ đi, ngày mai đếm tiếp, tôi thấy hơi buồn ngủ rồi.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            <em>(Ghi sổ mấy chữ rồi nói)</em> Uh, vàng nhiều thế này mà đếm hết chắc tới sáng quá. Thôi, mình đi ngủ đi
+            ông.
+          </div>
+        </div>
+
+        <!-- Giuse & Maria gõ cửa xin trọ -->
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Cóc cóc cóc…. Có ai ở nhà không
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Ai đó…. À nhà có khách / mời hai ông bà vào
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Xin ông vui lòng cho chúng tôi ở trọ lại qua đêm
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Hai ông bà có thể ra quán trọ ở cuối làng thì hay hơn đấy.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Sao vậy ông?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Thú thật với ông, quán trọ chúng tôi giá hơi cao / ông nhìn xem / toàn là khách sang trọng không hà.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Có phòng nào rẻ không ạ? Chúng tôi chỉ có 1 nén vàng để sinh hoạt tại đây / và vợ tôi có thể sinh ngay đêm
+            nay
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Ờ / vậy mời ông bà vào nhà.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Có chuyện gì thế…..!!!<br>
+            Sao ông cho họ vào nhà thế ?<br>
+            Họ chỉ có 1 nén thôi, / mà vợ ông ta còn sắp sinh nở nữa, / lỡ họ ở mãi trong nhà mình thì sao?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Ờ thì / tôi cũng đang tìm cách đây <em>(nói khẽ với bà chủ)</em><br>
+            Này ông bạn thông cảm, phòng trọ của chúng tôi chật cả rồi
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Đúng đấy, / quán trọ của chúng tôi làm gì còn chỗ cho những người như hai ông bà. / Xí… Nghèo mà còn eo, /
+            ông đừng nói với họ nữa, / người gì dai như đỉa đói, / đuổi hoài không thèm đi
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Này ông / bà nhà tôi không bằng lòng.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Thưa ông / tôi thì sao cũng được / nhưng còn vợ tôi
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Vợ ông thì mặc kệ vợ ông chứ, / ai có quan hệ họ hàng gì với ông. / Chúng tôi đâu có nhiều thời gian, / tiền
+            của / để lo cho những người như hai ông bà.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            <em>(Nói từng chữ, giọng thảm thiết)</em> Thưa ông bà, / chúng tôi là lữ khách tha phương gặp điều chẳng
+            may, / xin ông bà thương.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Xí… / Nói sao mà dễ nghe thế, / ai mà có nhiều tình thương / mà để vung vãi lung tung như thế
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Maria</span>
+          <div class="dialogue-content">
+            Tôi xin ông, / tôi van ông / ông cho chúng tôi ở qua đêm, / ở chúng tôi ở chỗ nào cũng được ạ.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Úi giời ơi, / góc chuồng lừa của chúng tôi / cũng không còn chỗ để cho hai ông bà trọ nữa đâu.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Hay là thế này, / ở ngoài đồng / còn nhiều hang lừa lắm, / hai ông bà có thể ra đó tá túc qua đêm / mấy
+            chuồng đó còn ngon lành lắm.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Bà chủ</span>
+          <div class="dialogue-content">
+            Ừ, hay đó / chuồng lừa là vừa cho ông bà lắm, / có cỏ có rơm / tha hồ mà ấm<br>
+            Thôi / vào đi ông / nói chuyện với những người khố rách áo ôm làm chi cho mất thời gian.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="chu-quan">
+          <span class="char-badge badge-host">Ông chủ</span>
+          <div class="dialogue-content">
+            Bà thật khôn ngoan, / đã đuổi được họ / tránh được phiền hà.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="giuse">
+          <span class="char-badge badge-giuse">Giuse</span>
+          <div class="dialogue-content">
+            Maria, / anh rất đau lòng vì không tìm được nơi tử tế cho con và em, anh chỉ mới hỏi vậy / mà mọi người đều
+            khước từ chúng ta.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="maria">
+          <span class="char-badge badge-maria">Maria</span>
+          <div class="dialogue-content">
+            Giuse ơi / chúng ta là phận vợ chồng, / vì trong cơn thử thách này chúng ta mới cảm thông được sự thiếu thốn
+            của người nghèo khổ / và em tin chắc rằng / <strong>Thiên Chúa sẽ biến những rủi ro thành chuyện an lành /
+              cho những ai tin tưởng vào Ngài.</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 7: MỤC ĐỒNG -->
+      <!-- ============================================== -->
+      <section id="canh-7" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>🐑</span> CẢNH 7: MỤC ĐỒNG</h2>
+          <span class="scene-subtitle">Cầu nguyện trong đêm đông &amp; Sứ điệp Tin Mừng tại Bêlem</span>
+        </div>
+
+        <div class="stage-action">
+          🎭 Diễn cảnh lùa chiên vào một chỗ, nhóm lửa và ngồi xuống nghỉ ngơi.
+        </div>
+
+        <div class="dialogue-row script-item" data-character="muc-dong">
+          <span class="char-badge badge-shepherd">Mục đồng 1</span>
+          <div class="dialogue-content">
+            Uống miếng nước đi em, em vất vả rồi
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="muc-dong">
+          <span class="char-badge badge-shepherd">Mục đồng 2</span>
+          <div class="dialogue-content">
+            Anh cũng uống miếng nước và ăn một chút gì đi, trông anh mệt quá rồi kìa
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="muc-dong">
+          <span class="char-badge badge-shepherd">Mục đồng 1</span>
+          <div class="dialogue-content">
+            Cảm ơn em
+          </div>
+        </div>
+
+        <div class="stage-action">
+          🎭 (Sau khi ăn uống một chút)
+        </div>
+
+        <div class="dialogue-row script-item" data-character="muc-dong">
+          <span class="char-badge badge-shepherd">Mục đồng 3</span>
+          <div class="dialogue-content">
+            Mình cầu nguyện và nghỉ ngơi sớm đi anh em, để ngày mai còn có sức mà làm việc.
+          </div>
+        </div>
+
+        <!-- Mục đồng cầu nguyện: múa bài Trời cao – Ns Duy Tân -->
+        <div class="song-box script-item" data-character="muc-dong">
+          <div class="song-badge">🎶 Mục đồng cầu nguyện (Múa bài: Trời cao – Ns Duy Tân)</div>
+          <div class="song-lyrics">
+            <div class="song-chorus" style="margin-top: 0; margin-bottom: 10px;">
+              <strong>[ĐK:]</strong><br>
+              Trời cao hãy đổ sương xuống, và ngàn mây hãy mưa Đấng Chuộc Tôi. Trời cao hãy đổ sương xuống và ngàn mây
+              hãy mưa Đấng Cứu Đời.
+            </div>
+            <p>1. Trong đêm u tối chúng con mong ngày mau tới. Như nai đang khát ước mong mau tìm thấy suối. Chúa ơi
+              dừng cơn giận Chúa lại thôi. Chúa ơi đoàn con đã hối tội rồi.</p>
+          </div>
+        </div>
+
+        <div class="stage-action">
+          🎭 (Các mục đồng cầu nguyện xong thì nằm ngủ)
+        </div>
+
+        <div class="dialogue-row script-item" data-character="thien-than">
+          <span class="char-badge badge-god">Thiên thần</span>
+          <div class="dialogue-content">
+            Ôi những tâm hồn thật đơn sơ thánh thiện / ngày đêm hằng mong mỏi đợi trông Đấng cứu tinh, ôi, thật đẹp làm
+            sao!<br>
+            Đúng rồi, / không phải là vua chúa trần gian, / cũng chẳng phải những bậc hiền triết khôn ngoan, nhưng chính
+            những mục đồng đơn sơ này mới xứng đáng là những con người đầu tiên được diện kiến Chúa Hài Đồng.
+          </div>
+        </div>
+
+        <!-- Lời ca Thiên Thần báo tin -->
+        <div class="song-box script-item" data-character="thien-than">
+          <div class="song-badge">🎶 Thiên Thần hát báo tin cho mục đồng (Hát: Cùng đi Belem – Hoài Đức &amp; Vĩnh
+            Phước)</div>
+          <div class="song-lyrics">
+            <p>Kìa trông huy hoàng vì sao! Chiếu soi gần xa khắp miền.<br>
+              Nào hỡi mục đồng dậy mau chớ lo chi hãy bằng yên.<br>
+              Này nghe Ta báo tin vui mừng: Vừa đây trong chốn hang lừa đã sinh ra chính Vua muôn trùng.<br>
+              Mau đến Bê Lem kính thờ.</p>
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="muc-dong">
+          <span class="char-badge badge-shepherd">Mục đồng</span>
+          <div class="dialogue-content">
+            Bê Lem kìa sương tuyết ta ngại chi! Mau lên nào, mau bước ta cùng đi.<br>
+            Cùng đi xem rõ Vua nhân trần Người sinh trong cảnh cơ hàn.<br>
+            Nào anh em hãy nghe Thiên Thần! Đi viếng Chúa ta xuống trần.
+          </div>
+        </div>
+
+        <div class="song-box script-item" data-character="thien-than muc-dong">
+          <div class="song-badge">✨ Điệp Khúc Thiên Thần Hòa Vang</div>
+          <div class="song-lyrics">
+            <div class="song-chorus">
+              <strong>[ĐK.]</strong><br>
+              Giữa muôn vàn hào quang với muôn ngàn hương ngát lừng.<br>
+              Bao Thiên Thần hòa vang. Cất bao lời cung chúc mừng:<br>
+              <strong>Sáng danh Thiên Chúa trên trời! Bằng yên cho khắp nhân loài!<br>
+                Sáng danh Thiên Chúa trên trời! Bằng yên xuống cho nhân loài.</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH 8: 3 VUA -->
+      <!-- ============================================== -->
+      <section id="canh-8" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>👑</span> CẢNH 8: 3 VUA</h2>
+          <span class="scene-subtitle">Theo ánh sao lạ tìm Vua Bình An</span>
+        </div>
+
+        <div class="narrator-block script-item" data-character="dan">
+          <div class="narrator-tag">🎙️ Dẫn</div>
+          <p>Vinh quang của Đấng giáng thế không chỉ được loan báo và đón nhận tại đất nước Israel nhỏ bé. Ánh sáng vinh
+            quang của Người còn được chiếu toả đi khắp nơi. Ở tận Phương đông xa xôi, ánh sao lạ đã thu hút sự chú ý của
+            Ba nhà chiêm tinh học hay còn gọi là Ba Vua. Ánh sao này đã rọi ngay vào tim của họ, họ nơi đang thổn thức,
+            khao khát tìm sự công chính. Và thế, họ liền lên đường với đầy đủ lễ vật, theo ánh sao đến thờ lạy Thiên
+            Chúa giáng trần.</p>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 1</span>
+          <div class="dialogue-content">
+            Mấy ngàn năm mong đợi Cứu thế giáng sinh. Nay từ chốn trời cao, một vì sao xuất hiện, ta phải mau tìm đến!
+            A, kìa sao lạ đàng kia, tiến mau về kính bái.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 2</span>
+          <div class="dialogue-content">
+            <em>(Tay mang nhiều lễ vật. Hai Vua gặp nhau)</em> – Kính chào Ngài ạ! Có phải Ngài cất bước về vùng đất
+            Bêlem, có phải ngài đi tìm đến thờ lạy vị Vua muôn vua, Chúa các chúa giáng sinh theo hướng của sao lạ
+            không?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 1</span>
+          <div class="dialogue-content">
+            Ồ đúng rồi! Ngôi sao lạ phương Đông, Đấng nhân loại chờ mong đã giáng sinh thì phải. Những bước đường còn
+            lại tôi phải quyết nhanh chân tìm cứu Chúa giáng trần để thờ lạy.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 2</span>
+          <div class="dialogue-content">
+            Và tôi đây cũng vậy, ánh sao lạ dẫn đường đi qua bao dặm đường về Bêlem.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 1</span>
+          <div class="dialogue-content">
+            Thật dịp may hoạ hiếm, vậy ta hãy cùng đi.
+          </div>
+        </div>
+
+        <div class="stage-action">
+          🎭 (Đang nói thì Vua 3 tiến vào).
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 3</span>
+          <div class="dialogue-content">
+            Chào các ngài! Thật vui mừng khôn tả tôi được gặp các ngài. Xin cho tôi hỏi thăm, có phải đường phía trước
+            là hướng tới Bêlem phải không?
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 1</span>
+          <div class="dialogue-content">
+            Ôi có duyên kỳ thật, sao ta lại gặp nhau. Theo sao lạ dẫn đường, chúng ta đều đi tìm về Belem thờ lạy Vị Cứu
+            Chúa đã giáng trần.
+          </div>
+        </div>
+
+        <div class="dialogue-row script-item" data-character="ba-vua">
+          <span class="char-badge badge-kings">Vua 2</span>
+          <div class="dialogue-content">
+            Bêlem kia rồi đó, Chúa chúng ta đã giáng sinh kia kìa! Chúng ta hãy đi tới mau nào!
+          </div>
+        </div>
+
+        <div class="stage-action"
+          style="font-size: 1.02em; background: rgba(245, 197, 24, 0.12); border-left: 4px solid var(--gold-primary); color: var(--gold-light);">
+          🎭 <strong>Rước Chúa Hài Đồng lên hang đá.</strong> <em>(Nhạc: Joy to the world – Tiếng muôn thiên thần – Gia
+            Ân)</em>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- CẢNH KẾT: ĐÓN CHÚA HÀI ĐỒNG -->
+      <!-- ============================================== -->
+      <section id="canh-9" class="scene-section">
+        <div class="scene-header">
+          <h2 class="scene-title"><span>🌟</span> CẢNH KẾT: ĐÓN CHÚA HÀI ĐỒNG</h2>
+          <span class="scene-subtitle">Dâng Ba Của Lễ &amp; Tạ Ơn Canh Thức</span>
+        </div>
+
+        <div class="narrator-block script-item" data-character="dan" style="border-left-color: var(--gold-primary);">
+          <div class="narrator-tag" style="color: var(--gold-primary);">🎙️ Dẫn</div>
+          <p>Các Vua từ vùng đất Đông phương, trải qua bao dặm đường tiến về đây thờ lạy Chúa Hài Nhi nằm trong hang
+            lừa. Chúa đã giáng sinh! Ôi! Tình yêu thiết tha, ôi ánh sáng huy hoàng của Thiên Chúa đã chiếu vào chúng ta.
+          </p>
+
+          <div style="margin: 14px 0; padding-left: 12px; border-left: 3px solid var(--gold-primary);">
+            <p>🎁 <strong>Này vàng ròng làm của lễ</strong> <em>(đưa ra, dâng lên)</em> – xin thành kính dâng lên!</p>
+            <p style="margin-top: 6px;">🌿 <strong>Này mộc dược thật dịu êm</strong> <em>(đưa ra, dâng lên)</em>, xin
+              thành kính dâng lên!</p>
+            <p style="margin-top: 6px;">🕯️ <strong>Cùng nhũ hương thơm ngát</strong> <em>(đưa ra, dâng lên)</em> – Tin
+              yêu và phó thác dâng cả tấm lòng thành, xin thành kính dâng lên!</p>
+          </div>
+
+          <p><strong>Xin Chúa Giêsu Hài Đồng ban ơn lành và luôn luôn phù trợ chúng con.</strong></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
