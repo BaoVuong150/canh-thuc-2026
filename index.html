@@ -10,7 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20261111_04">
 </head>
 
 <body data-theme="dark">
@@ -317,9 +317,9 @@
             </div>
 
             <div class="controls-right">
-              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Địa cầu hoan ca - Sơn túi đỏ.mp3', 'Dia_cau_hoan_ca_Son_tui_do.mp3', this)" title="Tải bài Địa Cầu Hoan Ca (MP3)">
+              <a href="%C4%90%E1%BB%8Ba%20c%E1%BA%A7u%20hoan%20ca%20-%20S%C6%A1n%20t%C3%BAi%20%C4%91%E1%BB%8F.mp3" download="Dia_cau_hoan_ca_Son_tui_do.mp3" class="player-btn download-btn" onclick="return handleDownloadClick(event, this)" title="Tải bài Địa Cầu Hoan Ca (MP3)">
                 <span>⬇️</span> Tải MP3
-              </button>
+              </a>
               <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
                   Lặp</span></button>
               <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
@@ -559,9 +559,9 @@
             </div>
 
             <div class="controls-right">
-              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Truyền_Tin.mp3', 'Truyen_Tin.mp3', this)" title="Tải bài Truyền Tin (MP3)">
+              <a href="Truy%E1%BB%81n_Tin.mp3" download="Truyen_Tin.mp3" class="player-btn download-btn" onclick="return handleDownloadClick(event, this)" title="Tải bài Truyền Tin (MP3)">
                 <span>⬇️</span> Tải MP3
-              </button>
+              </a>
               <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
                   Lặp</span></button>
               <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
@@ -792,9 +792,9 @@
             </div>
 
             <div class="controls-right">
-              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Magnificat3.mp3', 'Magnificat.mp3', this)" title="Tải bài Magnificat (MP3)">
+              <a href="Magnificat3.mp3" download="Magnificat.mp3" class="player-btn download-btn" onclick="return handleDownloadClick(event, this)" title="Tải bài Magnificat (MP3)">
                 <span>⬇️</span> Tải MP3
-              </button>
+              </a>
               <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
                   Lặp</span></button>
               <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
@@ -1216,9 +1216,9 @@
 
             <div class="controls-right">
               <!-- Download MP3 -->
-              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Emmanuel.mp3', 'Emmanuel.mp3', this)" title="Tải bài Emmanuel (MP3)">
+              <a href="Emmanuel.mp3" download="Emmanuel.mp3" class="player-btn download-btn" onclick="return handleDownloadClick(event, this)" title="Tải bài Emmanuel (MP3)">
                 <span>⬇️</span> Tải MP3
-              </button>
+              </a>
               <!-- Loop toggle -->
               <button class="player-btn" id="loopBtn" onclick="toggleLoopAudio()" title="Bật/Tắt lặp lại để tập dượt">
                 <span>🔁 Lặp</span>
@@ -1903,9 +1903,9 @@
               <span>Sơn Túi Đỏ &bull; MP3 (12.9 MB)</span>
             </div>
           </div>
-          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Địa cầu hoan ca - Sơn túi đỏ.mp3', 'Dia_cau_hoan_ca_Son_tui_do.mp3', this)">
+          <a href="%C4%90%E1%BB%8Ba%20c%E1%BA%A7u%20hoan%20ca%20-%20S%C6%A1n%20t%C3%BAi%20%C4%91%E1%BB%8F.mp3" download="Dia_cau_hoan_ca_Son_tui_do.mp3" class="music-item-btn" onclick="return handleDownloadClick(event, this)">
             <span>⬇️</span> Tải về
-          </button>
+          </a>
         </div>
 
         <!-- Bài 2 -->
@@ -1917,9 +1917,9 @@
               <span>Sứ Thần &amp; Maria &bull; MP3 (2.9 MB)</span>
             </div>
           </div>
-          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Truyền_Tin.mp3', 'Truyen_Tin.mp3', this)">
+          <a href="Truy%E1%BB%81n_Tin.mp3" download="Truyen_Tin.mp3" class="music-item-btn" onclick="return handleDownloadClick(event, this)">
             <span>⬇️</span> Tải về
-          </button>
+          </a>
         </div>
 
         <!-- Bài 3 -->
@@ -1931,9 +1931,9 @@
               <span>Mẹ Maria &amp; Elizabeth &bull; MP3 (4.9 MB)</span>
             </div>
           </div>
-          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Magnificat3.mp3', 'Magnificat.mp3', this)">
+          <a href="Magnificat3.mp3" download="Magnificat.mp3" class="music-item-btn" onclick="return handleDownloadClick(event, this)">
             <span>⬇️</span> Tải về
-          </button>
+          </a>
         </div>
 
         <!-- Bài 4 -->
@@ -1945,21 +1945,21 @@
               <span>Đường tới Bêlem &bull; MP3 (4.3 MB)</span>
             </div>
           </div>
-          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Emmanuel.mp3', 'Emmanuel.mp3', this)">
+          <a href="Emmanuel.mp3" download="Emmanuel.mp3" class="music-item-btn" onclick="return handleDownloadClick(event, this)">
             <span>⬇️</span> Tải về
-          </button>
+          </a>
         </div>
       </div>
       <div class="music-modal-footer">
         <span class="music-footer-tip">💡 Tải về để tập dượt và phát nhạc offline không cần mạng.</span>
-        <button class="music-download-all-btn" onclick="downloadAllTracks(this)">
-          <span>⬇️</span> Tải tất cả 4 bài
-        </button>
+        <a href="nhac-canh-thuc-2026.zip" download="nhac-canh-thuc-2026.zip" class="music-download-all-btn" onclick="return handleDownloadClick(event, this)">
+          <span>📦</span> Tải trọn bộ 4 bài (ZIP &bull; 25 MB)
+        </a>
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20261111_04"></script>
 </body>
 
 </html>

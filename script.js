@@ -472,24 +472,8 @@ initSceneAudioPlayer('truyenTinPlayerCard');
 initSceneAudioPlayer('magnificatPlayerCard');
 
 // ==============================================
-// MUSIC DOWNLOAD LOGIC (BLOB FORCED DOWNLOAD)
+// MUSIC DOWNLOAD LOGIC
 // ==============================================
-function showToast(message, duration = 4000) {
-  let toast = document.getElementById('musicToast');
-  if (!toast) {
-    toast = document.createElement('div');
-    toast.id = 'musicToast';
-    toast.className = 'music-toast';
-    document.body.appendChild(toast);
-  }
-  toast.innerHTML = message;
-  toast.classList.add('active');
-  clearTimeout(toast._timeout);
-  toast._timeout = setTimeout(() => {
-    toast.classList.remove('active');
-  }, duration);
-}
-
 function openDownloadModal() {
   const modal = document.getElementById('musicDownloadModal');
   if (modal) {
@@ -506,106 +490,26 @@ function closeDownloadModal() {
   }
 }
 
-// Tải 1 bài MP3 - Ép tải về máy thay vì mở trình phát nhạc
-async function downloadSingleTrack(url, filename, btnElement) {
-  const originalHtml = btnElement ? btnElement.innerHTML : '';
-  if (btnElement) {
-    btnElement.innerHTML = '<span>⏳</span> Đang tải...';
-    btnElement.style.pointerEvents = 'none';
+// Xử lý khi nhấn nút tải
+function handleDownloadClick(e, el) {
+  // Nếu đang mở trang từ file:/// trên máy tính
+  if (window.location.protocol === 'file:') {
+    e.preventDefault();
+    alert(
+      "💡 BẠN ĐANG MỞ XEM TRỰC TIẾP TỪ FILE TRÊN MÁY TÍNH (file://):\n\n" +
+      "1. Toàn bộ 4 file nhạc đã có sẵn ngay trong thư mục máy của bạn:\n" +
+      "   c:\\workplace\\canh-thuc\\\n\n" +
+      "2. Trình duyệt chặn chức năng tự động tải khi mở file nội bộ từ ổ cứng.\n\n" +
+      "👉 Để tải file về máy như bình thường:\n" +
+      "   - Hãy mở trang web chính thức: https://baovuong150.github.io/canh-thuc-2026/\n" +
+      "   - Hoặc NHẤP CHUỘT PHẢI vào nút này -> chọn 'Lưu liên kết thành...' (Save link as...)"
+    );
+    return false;
   }
 
-  // Trường hợp 1: Chạy trên Web (GitHub Pages / HTTP / HTTPS)
-  // Dùng kỹ thuật Blob URL để ép trình duyệt lưu file trực tiếp vào thư mục Downloads
-  if (window.location.protocol.startsWith('http')) {
-    try {
-      showToast(`⏳ Đang tải <strong>${filename}</strong> về máy của bạn...`);
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Không thể fetch file');
-      const blob = await response.blob();
-      const blobUrl = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = blobUrl;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
-
-      showToast(`✅ Đã tải xong <strong>${filename}</strong> vào thư mục Downloads!`, 3000);
-      if (btnElement) {
-        btnElement.innerHTML = '<span>✅</span> Đã tải!';
-        setTimeout(() => {
-          btnElement.innerHTML = originalHtml;
-          btnElement.style.pointerEvents = '';
-        }, 1500);
-      }
-      return;
-    } catch (err) {
-      console.warn('Lỗi Blob download, chuyển sang fallback:', err);
-    }
-  }
-
-  // Trường hợp 2: Mở file:/// trực tiếp từ máy tính
-  // Trình duyệt bảo mật chặn auto-download trên file:// nên sẽ mở tab trình phát.
-  showToast(`💡 File đã có trong máy của bạn! Hoặc bấm dấu <strong>[⋮]</strong> trên tab nhạc vừa mở &rarr; chọn <strong>Tải xuống</strong>.`, 5500);
-  const win = window.open(url, '_blank');
-  if (!win) {
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.target = '_blank';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-
-  if (btnElement) {
-    btnElement.innerHTML = originalHtml;
-    btnElement.style.pointerEvents = '';
-  }
+  // Khi đang mở trên web (https://):
+  // Thẻ <a> với thuộc tính download sẽ tự động kích hoạt tính năng tải file của trình duyệt
+  return true;
 }
 
-// Tải lần lượt cả 4 bài hát
-async function downloadAllTracks(btnElement) {
-  const tracks = [
-    { url: 'Địa cầu hoan ca - Sơn túi đỏ.mp3', name: 'Dia_cau_hoan_ca_Son_tui_do.mp3' },
-    { url: 'Truyền_Tin.mp3', name: 'Truyen_Tin.mp3' },
-    { url: 'Magnificat3.mp3', name: 'Magnificat.mp3' },
-    { url: 'Emmanuel.mp3', name: 'Emmanuel.mp3' }
-  ];
-
-  const originalHtml = btnElement ? btnElement.innerHTML : '';
-
-  if (window.location.protocol.startsWith('http')) {
-    if (btnElement) {
-      btnElement.innerHTML = '<span>⏳</span> Đang tải 4 bài...';
-      btnElement.style.pointerEvents = 'none';
-    }
-
-    for (let i = 0; i < tracks.length; i++) {
-      const track = tracks[i];
-      if (btnElement) {
-        btnElement.innerHTML = `<span>⏳</span> Đang tải bài ${i + 1}/4...`;
-      }
-      await downloadSingleTrack(track.url, track.name);
-      await new Promise(r => setTimeout(r, 600));
-    }
-
-    if (btnElement) {
-      btnElement.innerHTML = '<span>✅</span> Đã tải xong cả 4 bài!';
-      setTimeout(() => {
-        btnElement.innerHTML = originalHtml;
-        btnElement.style.pointerEvents = '';
-      }, 2000);
-    }
-  } else {
-    // file:/// mode
-    showToast(`💡 Đang mở 4 bài: File đã có trong máy, hoặc bấm dấu [⋮] &rarr; Tải xuống trên từng tab!`, 5500);
-    tracks.forEach((track, index) => {
-      setTimeout(() => {
-        window.open(track.url, '_blank');
-      }, index * 400);
-    });
-  }
-}
 
