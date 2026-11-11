@@ -471,3 +471,43 @@ initSceneAudioPlayer('diaCauPlayerCard');
 initSceneAudioPlayer('truyenTinPlayerCard');
 initSceneAudioPlayer('magnificatPlayerCard');
 
+// ==============================================
+// MUSIC DOWNLOAD MODAL LOGIC
+// ==============================================
+function openDownloadModal() {
+  const modal = document.getElementById('musicDownloadModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.classList.add('drawer-open');
+  }
+}
+
+function closeDownloadModal() {
+  const modal = document.getElementById('musicDownloadModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.classList.remove('drawer-open');
+  }
+}
+
+// Tải lần lượt các bài hát
+function downloadAllTracks() {
+  const tracks = [
+    { url: 'Địa cầu hoan ca - Sơn túi đỏ.mp3', name: 'Dia_cau_hoan_ca_Son_tui_do.mp3' },
+    { url: 'Truyền_Tin.mp3', name: 'Truyen_Tin.mp3' },
+    { url: 'Magnificat3.mp3', name: 'Magnificat.mp3' },
+    { url: 'Emmanuel.mp3', name: 'Emmanuel.mp3' }
+  ];
+
+  tracks.forEach((track, index) => {
+    setTimeout(() => {
+      const link = document.createElement('a');
+      link.href = track.url;
+      link.download = track.name;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, index * 700);
+  });
+}
+
