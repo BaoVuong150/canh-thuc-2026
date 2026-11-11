@@ -2125,3 +2125,45 @@ body.drawer-open {
   border-color: var(--gold-primary);
 }
 
+/* ============================================== */
+/* TOAST NOTIFICATION                             */
+/* ============================================== */
+.music-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(13, 21, 39, 0.96);
+  border: 1px solid var(--gold-primary);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 20px rgba(245, 197, 24, 0.25);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  z-index: 2200;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  max-width: 90vw;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.music-toast.active {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+[data-theme="light"] .music-toast {
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+

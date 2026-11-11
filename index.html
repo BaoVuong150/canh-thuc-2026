@@ -317,9 +317,9 @@
             </div>
 
             <div class="controls-right">
-              <a href="Địa cầu hoan ca - Sơn túi đỏ.mp3" download="Dia_cau_hoan_ca_Son_tui_do.mp3" class="player-btn download-btn" title="Tải bài Địa Cầu Hoan Ca (MP3)">
+              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Địa cầu hoan ca - Sơn túi đỏ.mp3', 'Dia_cau_hoan_ca_Son_tui_do.mp3', this)" title="Tải bài Địa Cầu Hoan Ca (MP3)">
                 <span>⬇️</span> Tải MP3
-              </a>
+              </button>
               <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
                   Lặp</span></button>
               <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
@@ -559,9 +559,9 @@
             </div>
 
             <div class="controls-right">
-              <a href="Truyền_Tin.mp3" download="Truyen_Tin.mp3" class="player-btn download-btn" title="Tải bài Truyền Tin (MP3)">
+              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Truyền_Tin.mp3', 'Truyen_Tin.mp3', this)" title="Tải bài Truyền Tin (MP3)">
                 <span>⬇️</span> Tải MP3
-              </a>
+              </button>
               <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
                   Lặp</span></button>
               <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
@@ -792,9 +792,9 @@
             </div>
 
             <div class="controls-right">
-              <a href="Magnificat3.mp3" download="Magnificat.mp3" class="player-btn download-btn" title="Tải bài Magnificat (MP3)">
+              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Magnificat3.mp3', 'Magnificat.mp3', this)" title="Tải bài Magnificat (MP3)">
                 <span>⬇️</span> Tải MP3
-              </a>
+              </button>
               <button class="player-btn" data-role="loop" title="Bật/Tắt lặp lại để tập dượt"><span>🔁
                   Lặp</span></button>
               <button class="player-btn" data-role="speed" title="Đổi tốc độ phát"><span
@@ -1216,9 +1216,9 @@
 
             <div class="controls-right">
               <!-- Download MP3 -->
-              <a href="Emmanuel.mp3" download="Emmanuel.mp3" class="player-btn download-btn" title="Tải bài Emmanuel (MP3)">
+              <button type="button" class="player-btn download-btn" onclick="downloadSingleTrack('Emmanuel.mp3', 'Emmanuel.mp3', this)" title="Tải bài Emmanuel (MP3)">
                 <span>⬇️</span> Tải MP3
-              </a>
+              </button>
               <!-- Loop toggle -->
               <button class="player-btn" id="loopBtn" onclick="toggleLoopAudio()" title="Bật/Tắt lặp lại để tập dượt">
                 <span>🔁 Lặp</span>
@@ -1903,9 +1903,9 @@
               <span>Sơn Túi Đỏ &bull; MP3 (12.9 MB)</span>
             </div>
           </div>
-          <a href="Địa cầu hoan ca - Sơn túi đỏ.mp3" download="Dia_cau_hoan_ca_Son_tui_do.mp3" class="music-item-btn">
+          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Địa cầu hoan ca - Sơn túi đỏ.mp3', 'Dia_cau_hoan_ca_Son_tui_do.mp3', this)">
             <span>⬇️</span> Tải về
-          </a>
+          </button>
         </div>
 
         <!-- Bài 2 -->
@@ -1917,9 +1917,9 @@
               <span>Sứ Thần &amp; Maria &bull; MP3 (2.9 MB)</span>
             </div>
           </div>
-          <a href="Truyền_Tin.mp3" download="Truyen_Tin.mp3" class="music-item-btn">
+          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Truyền_Tin.mp3', 'Truyen_Tin.mp3', this)">
             <span>⬇️</span> Tải về
-          </a>
+          </button>
         </div>
 
         <!-- Bài 3 -->
@@ -1931,9 +1931,9 @@
               <span>Mẹ Maria &amp; Elizabeth &bull; MP3 (4.9 MB)</span>
             </div>
           </div>
-          <a href="Magnificat3.mp3" download="Magnificat.mp3" class="music-item-btn">
+          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Magnificat3.mp3', 'Magnificat.mp3', this)">
             <span>⬇️</span> Tải về
-          </a>
+          </button>
         </div>
 
         <!-- Bài 4 -->
@@ -1945,14 +1945,14 @@
               <span>Đường tới Bêlem &bull; MP3 (4.3 MB)</span>
             </div>
           </div>
-          <a href="Emmanuel.mp3" download="Emmanuel.mp3" class="music-item-btn">
+          <button type="button" class="music-item-btn" onclick="downloadSingleTrack('Emmanuel.mp3', 'Emmanuel.mp3', this)">
             <span>⬇️</span> Tải về
-          </a>
+          </button>
         </div>
       </div>
       <div class="music-modal-footer">
         <span class="music-footer-tip">💡 Tải về để tập dượt và phát nhạc offline không cần mạng.</span>
-        <button class="music-download-all-btn" onclick="downloadAllTracks()">
+        <button class="music-download-all-btn" onclick="downloadAllTracks(this)">
           <span>⬇️</span> Tải tất cả 4 bài
         </button>
       </div>
